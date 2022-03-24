@@ -12,6 +12,7 @@ const HttpError = require('./models/http-errors');
 const app = express();
 dotenv.config()
 const MONGO_URL=process.env.MONGO_URL;
+const PORT=process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
@@ -55,7 +56,7 @@ mongoose
 .connect(MONGO_URL)
 
   .then(() => {
-    app.listen(5000);
+    app.listen(PORT);
   })
   .catch(err => {
     console.log(err);
